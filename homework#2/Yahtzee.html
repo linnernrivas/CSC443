@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Yahtzee</title>
+    <style type='text/css'>
+        body {
+            text-align: center;
+        }
+
+        div.scr {
+            width: 3em;
+            height: 12pt;
+            background-color: #ababff;
+            border: solid 2px #ababaa;
+        }
+    </style>
+</head>
+<script language="Javascript">
+    d = new Array(0, 0, 0, 0, 0);
+    dc = new Array(false, false, false, false, false);
+
+  //this is the code the makes roll
+    function roll() {
+
+        for (var i = 0; i < 5; i++) {
+          if(!dc[i]){
+                var dl = Math.floor(Math.random() * 6) + 1;
+				            d[i]=dl;
+                var di = document.getElementById("d" + i);
+                di.src = "pix/dice" + dl + ".gif";
+              //di.src = "pix/dice" + d[i] + ".gif";
+            }
+        }
+    }
+
+// this is the code the makes  new game.
+    function newGame() {
+        location.reload();
+    }
+// this is the code the makes flag
+    function flag(idx) {
+        dc[idx] = !dc[idx];
+        var img = document.getElementById("d" + idx);
+        if (dc[idx]) {
+            img.src = "pix/diceX" + d[idx] + ".gif";
+        } else {
+            img.src = "pix/dice" + d[idx] + ".gif";
+        }
+    }
+
+    //this is the code the makes click
+    function clicked(x){
+      var total = 0;
+      var local = document.getElementById("s"+x);
+      for(var i = 0; i<5;i++)
+      if (d[i]== x){
+        total+=x
+      }
+      local.innerHTML=total;
+    }
+
+    //this is the code the makes 3 kind work
+    function tok(){
+      var total = 0;
+      //three kind setup
+      var local = document.getElementById("k3");
+      // for each dice i compare to the others j
+      for(i=0;i<5;i++){
+        var num = 0;
+        for(j=1;j<5;j++){
+          if(d[i]==d[j]){
+            num++;
+          }
+        }
+        //if the added vairble is 3 then run 3 of a kind
+        if(num>=3){
+          total = d[i]*3;
+          local.innerHTML= total;
+          break;
+        }
+        else{
+          local.innerHTML=total;
+        }
+      }
+		}
+
+    //this is the code the makes 4 kind work
+    function fok(){
+      var total = 0;
+      //three kind setup
+      var local = document.getElementById("k4");
+      // for each dice i compare to the others j
+      for(i=0;i<5;i++){
+        var num = 0;
+        for(j=1;j<5;j++){
+          if(d[i]==d[j]){
+            num++;
+          }
+        }
+        //if the added vairble is 4 then run 4 of a kind
+    			if(num>=4){
+            total = d[i]*4;
+            local.innerHTML= total;
+            break;
+          }
+          else{
+            local.innerHTML=total;
+          }
+        }
+      }
+
+
+//fro both make a new array of the dice arrary  and sort the new araryy, thi sis key so it doesnt sort the already made
+//arry then get rid of all douibles, if the size is greater thanf 4 idt a small stright , if it equals 5 its a large  so basically same code
+
+   //This is the function for full house
+    function FuHo() {
+        var total = 0;
+        var fuh = false;
+        var ar = new Array();
+        var local = document.getElementById("FH")
+        for (var i = 0; i < 5; i++) {
+          if(ar[i] == 3 ){
+            for (var j = 0; j < 5; j++){
+              if(ar[i] == 3 ){
+              if ( ar[j]==2){
+                fuh= true;
+              }
+            }
+          }
+        }
+        if(fuh){
+          total = 25;
+          local.innerHTML = total;
+        }
+        else{
+            total= 0;
+            local.innerHTML = total;
+          }
+          local.innerHTML = total;
+          break;
+      }
+    }
+
+      //fro both make a new array of the dice arrary  and sort the new araryy, thi sis key so it doesnt sort the already made
+      //arry then get rid of all douibles, if the size is greater thanf 4 idt a small stright , if it equals 5 its a large  so basically same code
+      //this is the code the makes small straight
+      function smStr() {
+        var ar = new Array();
+        var total = 0;
+        var isIt = false;
+        var local = document.getElementById("ss");
+        for (var i = 0; i < 3; i++) {
+
+        if (ar[i] >= 1 && ar[i + 1] >= 1 && ar[i + 2] >= 1 && ar[i + 3]>=1){
+              isIt = true;
+            }
+        }
+        if (isIt){
+          total = 30;
+          local.innerHTML = total;
+        }
+        else{
+          total = 0;
+          local.innerHTML = total;
+        }
+          local.innerHTML = total;
+    }
+
+    //this is the code the makes large straight
+    function lgStr(){
+      var ar = new Array();
+      var total = 0;
+      var isIt = false;
+      var local = document.getElementById("ls");
+
+    for(i=0; i<2; i++){
+      if (ar[i] == 1 && ar[i + 1] == 1 && ar[i + 2] == 1 && ar[i + 3] == 1 && ar[ i + 4] == 1){
+            isIt=true;
+          }
+        }
+
+      if (!isIt){
+        total = 40;
+        local.innerHTML = total;
+      }
+      else{
+        total = 0;
+        local.innerHTML = total;
+      }
+      local.innerHTML = total;
+    }
+
+
+    //this is the code the makes Yahtzee
+        function k5yah(){
+          var total = 0;
+          //tYahtzee setup
+          var local = document.getElementById("yah");
+          //Yahtzee setups
+          // for each dice i compare to the others j
+          for(i=0;i<5;i++){
+            var num = 0;
+            for(j=1;j<5;j++){
+              if(d[i]==d[j]){
+                num++;
+              }
+            }
+            //if the added vairble is 5 then run Yahtzee
+            if(num>=5){
+              total = d[i]*5;
+              local.innerHTML = total;
+              break;
+            }
+            else{
+              local.innerHTML = total;
+            }
+          }
+        }
+        //this is the code the makes chance
+        function Chance(){
+          var total = 0;
+          var ch1 = new Array();
+          var ch1 = d.slice();
+          var local = document.getElementById("ch");
+          for (var i= 0;i<5;i++){
+            total += ch1[i];
+          }
+          local.innerHTML = total;
+        }
+
+        function total(){
+          var total = 0;
+          var local = document.getElementById("t");
+          //This grabs the total of the 1-6
+          var ch1 = document.getElementById("s1").innerHTML;
+          var ch2 = document.getElementById("s2").innerHTML;
+          var ch3 = document.getElementById("s3").innerHTML;
+          var ch4 = document.getElementById("s4").innerHTML;
+          var ch5 = document.getElementById("s5").innerHTML;
+          var ch6 = document.getElementById("s6").innerHTML;
+          //This grabs the total of the # of a kind
+          var ch7 = document.getElementById("k3").innerHTML;
+          var ch8 = document.getElementById("k4").innerHTML;
+          //This grabs the total of the Full house
+          var ch9 = document.getElementById("FH").innerHTML;
+          //This grabs the total of the small straight
+          var ch10 = document.getElementById("ss").innerHTML;
+          //This grabs the total of the large straight
+          var ch11 = document.getElementById("ls").innerHTML;
+          //This grabs the total of the Yahtzee
+          var ch12 = document.getElementById("yah").innerHTML;
+          //This grabs the total of the chance
+          var ch13 = document.getElementById("ch").innerHTML;
+          //This grabs the total
+          total= parseFloat(ch1) + parseFloat(ch2) + parseFloat(ch3) + parseFloat(ch4) +parseFloat(ch5) + parseFloat(ch6) + parseFloat(ch7) + parseFloat(ch8) + parseFloat(ch9) + parseFloat(ch10) + parseFloat(ch11) + parseFloat(ch12) + parseFloat(ch13);
+          local.innerHTML = total;
+        }
+        function mouseOver(numofScore) {
+          if (document.getElementById("numofScore"+ numofScore).value != " " ){
+            return;
+          }
+          var numScore
+          numScore = getScore(numofScore);
+          var numScore = document.getElementById("numofScore"+ numofScore).value = numScore;
+        }
+
+        function mouseOut(){
+          var ch1 = document.getElementById("s1").style.color = "black";
+          var ch2 = document.getElementById("s2").style.color = "black";
+          var ch3 = document.getElementById("s3").style.color = "black";
+          var ch4 = document.getElementById("s4").style.color = "black";
+          var ch5 = document.getElementById("s5").style.color = "black";
+          var ch6 = document.getElementById("s6").style.color = "black";
+
+          var ch7 = document.getElementById("k3").style.color = "black";
+          var ch8 = document.getElementById("k4").style.color = "black";
+
+          var ch9 = document.getElementById("FH").style.color = "black";
+
+          var ch10 = document.getElementById("ss").style.color = "black";
+          //This grabs the total of the large straight
+          var ch11 = document.getElementById("ls").style.color = "black";
+          //This grabs the total of the Yahtzee
+          var ch12 = document.getElementById("yah").style.color = "black";
+          //This grabs the total of the chance
+          var ch13 = document.getElementById("ch").style.color = "black";
+        }
+
+</script>
+
+<body>
+    <h1>Yahtzee</h1>
+    <div>
+        <img id="d0" src='pix/dice0.gif' onclick="flag(0);">
+        <img id="d1" src='pix/dice0.gif' onclick="flag(1);">
+        <img id="d2" src='pix/dice0.gif' onclick="flag(2);">
+        <img id="d3" src='pix/dice0.gif' onclick="flag(3);">
+        <img id="d4" src='pix/dice0.gif' onclick="flag(4);">
+    </div>
+
+    <table align="center" border='2'>
+        <tr>
+            <td class="c1">1's</td>
+            <td class="c2">
+                <div class="scr" id="s1" onClick= "clicked(1)" onmouseover="mouseOver(1)"  onmouseout="mouseOut(1)"></div>
+            </td>
+            <td class="c3" rowspan="6" style="text-align:center;"><button id="roll;" onclick="roll()">Roll</button></td>
+        </tr>
+        <tr>
+            <td class="c1" >2's</td>
+            <td class="c2">
+                <div class="scr" id="s2" onClick= "clicked(2)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">3's</td>
+            <td class="c2">
+                <div class="scr" id="s3" onClick= "clicked(3)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">4's</td>
+            <td class="c2">
+                <div class="scr" id="s4" onClick= "clicked(4)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">5's</td>
+            <td class="c2">
+                <div class="scr" id="s5" onClick= "clicked(5)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">6's</td>
+            <td class="c2">
+                <div class="scr" id="s6"  onClick= "clicked(6)"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">3 of a kind</td>
+            <td class="c2">
+                <div class="scr" id="k3" onClick="tok('three')"></div>
+            </td>
+            <td class="c3" rowspan="8"><br><br><button onClick="newGame()">New Game</button></td>
+        </tr>
+        <tr>
+            <td class="c1">4 of a kind</td>
+            <td class="c2">
+                <div class="scr" id="k4" onClick="fok('four')"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">Full House</td>
+            <td class="c2">
+                <div class="scr" id="FH" onClick="FuHo()"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">Sm str</td>
+            <td class="c2">
+                <div class="scr" id="ss" onClick="smStr()">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">Lg str</td>
+            <td class="c2">
+                <div class="scr" id="ls" onClick="lgStr()"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">Yahtzee</td>
+            <td class="c2">
+                <div class="scr" id="yah" onClick="k5yah()"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">Chance</td>
+            <td class="c2">
+                <div class="scr" id="ch" onClick="Chance()"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">Total</td>
+            <td class="c2">
+                <div class="scr" id="t" onClick="total();"></div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+
+<!--	Name:Linner Rivas
+        Course:	443
+        Assignment:	#2-->

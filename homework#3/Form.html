@@ -1,0 +1,126 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Survey</title>
+<style type="text/css">
+<script  type ="text/label">
+
+.survey-form  {border-collapse:collapse;border-spacing:0;}
+.survey-form td{font-family:Arial, sans-serif;font-size:14px;padding:10px 10px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.survey-form th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 10px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.survey-form .survey{vertical-align:top}
+.survey-form .odd-num{text-align:center;vertical-align:top}
+.survey-form .even-num{text-align:center;vertical-align:top}
+.survey-form .select-radio{vertical-align:top}
+</style>
+<body>
+  <form action="http://localhost:8080" metho=get>
+    <table class="survey-form">
+      <tr>
+        <th class="Title-page" colspan="14" style="font-size:25px;background-color:lavender">Survey(CSC443)</th>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="odd-num" rowspan="2" style="text-align:center;font-size:20px;">#</td>
+        <td class="survey-question" colspan="3" rowspan="2" style="text-align:center;font-size:20px;">Question</td>
+        <td class="odd-num" colspan="2">strongly</td>
+        <td class="odd-num" colspan="2">somewhat</td>
+        <td class="survey" colspan="2"></td>
+        <td class="survey" colspan="2">strongly</td>
+        <td class="survey" colspan="2">somewhat</td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="even-num" colspan="4">disagree</td>
+        <td class="select-radio" colspan="2">netural</td>
+        <td class="even-num" colspan="4">agree</td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="odd-num">1</td>
+        <td class="survey" colspan="3">This course helped me develop prblem-solving skills.</td>
+        <td class="survey" colspan="2"> <input type="radio" name="Q1" value=1 style="margin-left: 20px;"></td>
+        <td class="survey" colspan="2"> <input type="radio" name="Q1" value=1 style="margin-left: 25px;"></td>
+        <td class="survey" colspan="2"> <input type="radio" name="Q1" value=1 checked="checked" style="margin-left: 17px;"></td>
+        <td class="survey" colspan="2"> <input type="radio" name="Q1" value=1 style="margin-left: 20px;"></td>
+        <td class="survey" colspan="2"> <input type="radio" name="Q1" value=1 style="margin-left: 25px;"></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="even-num">2</td>
+        <td class="select-radio" colspan="3">This course was very challenging.</td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q2" value=2 style="margin-left: 20px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q2" value=2 style="margin-left: 25px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q2" value=2 checked="checked" style="margin-left: 17px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q2" value=2 style="margin-left: 20px;"> </td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q2" value=2 style="margin-left: 25px;"></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="odd-num">3</td>
+        <td class="survey" colspan="3">My programming ability increased after taking this course</td>
+        <td class="survey" colspan="2"><input type="radio" name="Q3" value=3 style="margin-left: 20px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q3" value=3 style="margin-left: 25px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q3" value=3 checked="checked" style="margin-left: 17px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q3" value=3 style="margin-left: 20px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q3" value=3 style="margin-left: 25px;"></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="even-num" >4</td>
+        <td class="select-radio" colspan="3">I will list 'JavaScript' on my resume.</td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q4" value=4 style="margin-left: 20px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q4" value=4 style="margin-left: 25px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q4" value=4 checked="checked" style="margin-left: 17px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q4" value=4 style="margin-left: 20px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q4" value=4 style="margin-left: 25px;"></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="odd-num">5</td>
+        <td class="survey" colspan="3">I will list 'Perl Scripting' on my resume.</td>
+        <td class="survey" colspan="2"><input type="radio" name="Q5" value=5 style="margin-left: 20px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q5" value=5 style="margin-left: 25px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q5" value=5 checked="checked"  style="margin-left: 17px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q5" value=5 style="margin-left: 20px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q5" value=5 style="margin-left: 25px;"></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="even-num">6</td>
+        <td class="select-radio" colspan="3">I will list 'PHP Scripting' on my resume.</td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q6" value=6 style="margin-left: 20px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q6" value=6 style="margin-left: 25px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q6" value=6 checked="checked" style="margin-left: 17px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q6" value=6 style="margin-left: 20px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q6" value=6 style="margin-left: 25px;"></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="odd-num">7</td>
+        <td class="survey" colspan="3">If I had more time, I would have done better in this course.</td>
+        <td class="survey" colspan="2"><input type="radio" name="Q7" value=7 style="margin-left: 20px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q7" value=7 style="margin-left: 25px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q7" value=7 checked="checked" style="margin-left: 17px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q7" value=7 style="margin-left: 20px;"></td>
+        <td class="survey" colspan="2"><input type="radio" name="Q7" value=7 style="margin-left: 25px;"></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="even-num">8</td>
+        <td class="select-radio" colspan="3">I will recommend this course to other students.</td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q8" value=8 style="margin-left: 20px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q8" value=8 style="margin-left: 25px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q8" value=8 checked="checked" style="margin-left: 17px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q8" value=8 style="margin-left: 20px;"></td>
+        <td class="select-radio" colspan="2"><input type="radio" name="Q8" value=8 style="margin-left: 25px;"></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+        <td class="odd-num" colspan="4"></td>
+        <td class="odd-num" colspan="2"><h3 style="color:red;">1</h3></td>
+        <td class="odd-num" colspan="2"><h3 style="color:orange;">2</h3></td>
+        <td class="odd-num" colspan="2"><h3 style="color:goldenrod;">3</h3></td>
+        <td class="odd-num" colspan="2"><h3 style="color:limegreen;">4</h3></td>
+        <td class="odd-num" colspan="2"><h3 style="color:foressurvey-formreen;">5</h3></td>
+      </tr>
+      <tr style="background-color:oldlace;">
+      <td class="select-radio" colspan="14" style="text-align: center;"><input type="submit"><input type="reset"></td>
+      </tr>
+    </table>
+  </form>
+</html>
+
+<!--	Name:Linner Rivas
+        Course:	443
+        Assignment:	#3
+      -->
